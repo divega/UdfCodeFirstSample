@@ -13,7 +13,7 @@ namespace UdfCodeFirstSample
             int? age = null;
             if (birthDate.HasValue)
             {
-                DateTime today = DateTime.Today;
+                var today = DateTime.Today;
                 age = today.Year - birthDate.Value.Year;
                 if (birthDate > today.AddYears(-age.Value))
                 {
