@@ -8,13 +8,14 @@ namespace UdfCodeFirstSample
     {
         private static void Main(string[] args)
         {
+            // add seed data
             using (var db = new TownContext())
             {
                 db.People.Add(new Person {Name = "Alfreds Futterkiste", BirthDate = new DateTime(1980, 1, 1)});
                 db.SaveChanges();
             }
 
-
+            // invoke the user defined function in a LINQ to Entities query
             using (var db = new TownContext())
             {
                 var age = db.People.Select(p => new {p.Name, Age = Fun.GetAge(p.BirthDate)}).FirstOrDefault();
