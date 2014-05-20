@@ -9,6 +9,7 @@ namespace UdfCodeFirstSample
         public static int? GetAge(DateTime? birthDate)
         {
             // this in-memory implementation will not be invoked when working on LINQ to Entities
+            // see Migrations for the T-SQL definition of the function
             int? age = null;
             if (birthDate.HasValue)
             {
